@@ -347,16 +347,6 @@ const Excel = () => {
     }
   };
 
-  const handleDownload = () => {
-    // Define the full URL of the Excel file
-    const excelFileUrl = process.env.PUBLIC_URL + "/AnnualStatements.xlsx";
-  
-    // Create a temporary anchor element
-    const anchor = document.createElement("a");
-    anchor.href = excelFileUrl;
-    anchor.download = "AnnualStatements.xlsx"; // Specify the filename for the downloaded file
-    anchor.click(); // Trigger the click event to start the download
-  };
   return (
     <div className="excel-file-upload">
       <div>
@@ -407,7 +397,7 @@ const Excel = () => {
             <button className="uploadBtn">Upload</button>
           </div>
         </form>
-        <button onClick={handleDownload}>Download</button>
+      
       </div>
     </div>
   );
