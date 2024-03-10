@@ -1,0 +1,29 @@
+.overview{
+    margin: 4vh 4vw;
+}
+h3{
+    font-size: 22px;
+}
+.logs{
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 2px solid #319795;
+    border-radius: 7px;
+    color: #319795;
+    cursor: pointer;
+    float: right;
+}
+.logs:hover{
+    background-color: #e1f7f7;
+}
+.row{
+    display: flex;
+    gap: 2vw;
+    margin-top: 6vh;
+}
+.col1{
+    flex: 4;
+}
+.col2{
+    flex: 3;
+}

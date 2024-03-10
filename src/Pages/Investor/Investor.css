@@ -1,0 +1,30 @@
+.investor {
+    margin: 4vh 7vw;
+
+}
+
+.investor-details {
+    /* border: 2px solid red; */
+    padding: 20px 0;
+}
+
+.investor-details-section {}
+
+.investor-details-section h4 {
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.investor-details-section div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.investor-details-section div p:nth-child(2) {
+    background-color: #12ceb55b;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 8px;
+}

@@ -1,0 +1,65 @@
+.sidebar{
+    height: 100vh;
+    
+}
+.navlist{
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+.page{
+    justify-content: center;
+    display: flex;
+    width: 16vw;
+}
+.link{
+    color: white;
+    text-decoration: none;
+}
+
+.link2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2vw;
+}
+.ab{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 0.5vw;
+}
+.ab:hover{
+    color: #a7ebe9;
+}
+.box{
+    width: 13vw;
+    height: 5vh;
+    margin-bottom: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottomSidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.icon{
+    font-size: 20px !important;
+}
+
+.active{
+    color: #319795;
+}
+.box2{
+    background-color: white;
+    border-radius: 7px;
+}
+.second{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}

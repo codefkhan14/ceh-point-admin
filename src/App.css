@@ -1,0 +1,14 @@
+.app{
+    width: 100%;
+}
+.container{
+    display: flex;
+}
+.appleft{
+    flex: 1;
+    display: flex;
+    background-color: #319795;
+}
+.appright{
+    flex: 5;
+}

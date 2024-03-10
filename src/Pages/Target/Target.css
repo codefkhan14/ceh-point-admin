@@ -1,0 +1,28 @@
+.target-links {
+    /* border: 2px solid red; */
+    display: flex;
+    margin: 100px 0 35px 0;
+    align-items: center;
+    color: grey;
+    margin-left: 50px;
+}
+
+.target-links div {
+    margin-inline-start: 20px;
+
+}
+
+.target-links div:nth-child(1) {
+    color: #319795;
+    position: relative;
+}
+
+.target-links div:nth-child(1):after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    background-color: #319795;
+}
