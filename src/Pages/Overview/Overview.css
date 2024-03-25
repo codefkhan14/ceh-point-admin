@@ -1,10 +1,22 @@
-.overview{
+.overview-section {
     margin: 4vh 4vw;
 }
-h3{
-    font-size: 22px;
+
+.overview-charts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+
 }
-.logs{
+
+.overview-chart {
+    margin-top: 6vh;
+    width: 500px
+}
+
+.logs {
     padding: 10px 30px;
     background-color: transparent;
     border: 2px solid #319795;
@@ -13,17 +25,7 @@ h3{
     cursor: pointer;
     float: right;
 }
-.logs:hover{
+
+.logs:hover {
     background-color: #e1f7f7;
-}
-.row{
-    display: flex;
-    gap: 2vw;
-    margin-top: 6vh;
-}
-.col1{
-    flex: 4;
-}
-.col2{
-    flex: 3;
 }

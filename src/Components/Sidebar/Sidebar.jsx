@@ -5,6 +5,7 @@ import { RiMailAddLine } from "react-icons/ri";
 import { RxArrowTopRight } from "react-icons/rx";
 
 const Test = () => {
+  
   const location = useLocation();
   const [activeItem, setActiveItem] = useState("/");
 
@@ -44,7 +45,7 @@ const Test = () => {
           <Link
             to="/Insights"
             className={activeItem === "Insights" ? "active" : ""}
-          >
+          >  
             Insights
           </Link>
         </div>

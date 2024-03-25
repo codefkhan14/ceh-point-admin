@@ -1,24 +1,22 @@
 .nav-sidebar {
     height: 100vh;
-
+    width: 280px;
 }
 
 .nav-sidebar-lists {
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+    /* margin-bottom: 30px; */
+    margin: 30px 0;
 }
 
-/* individual list  */
 .nav-sidebar-list {
-    justify-content: center;
     display: flex;
-    width: 16vw;
+    justify-content: center;
 }
 
 .nav-sidebar-list a {
-    width: 13vw;
-    height: 5vh;
-    margin-bottom: 1.5vw;
+    width: 65%;
+    height: 35px;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,9 +26,9 @@
 }
 
 .nav-sidebar-list a.active {
-    width: 13vw;
-    height: 5vh;
-    margin-bottom: 1.5vw;
+    width: 65%;
+    height: 35px;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,15 +36,6 @@
     background-color: white;
     border-radius: 7px;
 }
-
-
-
-
-
-
-
-
-
 
 .nav-sidebar-info {
     display: flex;
@@ -68,14 +57,9 @@
     color: #a7ebe9;
 }
 
-
-
 .nav-sidebar-info-icon {
     font-size: 15px !important;
 }
-
-
-
 
 /* unknown  */
 .link2 {

@@ -1,14 +1,31 @@
-.app{
+.app {
     width: 100%;
 }
-.container{
+
+.container {
     display: flex;
 }
-.appleft{
+
+.appleft {
+    z-index: 1;
     flex: 1;
     display: flex;
     background-color: #319795;
 }
-.appright{
+
+.sidebarnone {
+
+    display: none;
+}
+
+.appright {
     flex: 5;
+}
+
+@media screen and (max-width: 899px) {
+    .appleft {
+        position: fixed;
+        bottom: 0;
+        top: 66px;
+    }
 }

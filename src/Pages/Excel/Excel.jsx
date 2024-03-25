@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ref, set } from "firebase/database";
 import database from "./firebase";
 import Logo from "../../Assets/excel.png";
 import "./Excel.css";
 import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 const Excel = () => {
   const [combinedSalesData, setCombinedSalesData] = useState({});
   const [growthPercentageData, setGrowthPercentageData] = useState({});
@@ -46,7 +47,7 @@ const Excel = () => {
           setGrowthPercentageData(growthPercentageData);
         }
         if (selectCategory === "Cost Sheet") {
-          setData(dataJson[dataJson.length - 1]);
+          setData(dataJson);
         }
         if (selectCategory === "Revenue Model") {
           const RevenueModel = {
@@ -277,6 +278,12 @@ const Excel = () => {
         if (selectCategory === "Annual Statement") {
           setData(dataJson);
         }
+        if (selectCategory === "Gross Merchandises Value") {
+          setData(dataJson);
+        }
+        if (selectCategory === "User Aquisitions progression") {
+          setData(dataJson);
+        }
       };
 
       reader.readAsBinaryString(file);
@@ -285,9 +292,9 @@ const Excel = () => {
   };
   const handleFileSubmit = async (e) => {
     e.preventDefault();
+
     if (selectCategory === "Sales") {
       if (combinedSalesData && growthPercentageData) {
-        // const excelDataRef = ref(database, "Sales");
         const excelDataRef = ref(database, "excelData/Sales");
         try {
           await set(excelDataRef, {
@@ -345,7 +352,70 @@ const Excel = () => {
         console.error("No data to upload.");
       }
     }
+    if (selectCategory === "Gross Merchandises Value") {
+      if (data) {
+        const excelDataRef = ref(database, "excelData/TGMV");
+        try {
+          await set(excelDataRef, data);
+          console.log("Data uploaded to Firebase!");
+        } catch (error) {
+          console.error("Error uploading data:", error);
+        }
+      } else {
+        console.error("No data to upload.");
+      }
+    }
+    if (selectCategory === "User Aquisitions progression") {
+      if (data) {
+        const excelDataRef = ref(database, "excelData/UAP");
+        try {
+          await set(excelDataRef, data);
+          console.log("Data uploaded to Firebase!");
+        } catch (error) {
+          console.error("Error uploading data:", error);
+        }
+      } else {
+        console.error("No data to upload.");
+      }
+    }
   };
+
+  // const downloadExcel = () => {
+  //   const filePath = "./costSheet";
+  //   fetch(filePath)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.blob();
+  //     })
+  //     .then((blob) => {
+  //       saveAs(blob, "costSheet.xlsx");
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error downloading the file:", error);
+  //     });
+  // };
+  const cateogry = [
+    {
+      name: "Revenue Model",
+    },
+    {
+      name: "Sales",
+    },
+    {
+      name: "Cost Sheet",
+    },
+    {
+      name: "Annual Statement",
+    },
+    {
+      name: "Gross Merchandises Value",
+    },
+    {
+      name: "User Aquisitions progression",
+    },
+  ];
 
   return (
     <div className="excel-file-upload">
@@ -366,16 +436,13 @@ const Excel = () => {
           <option disabled value="">
             Select Category
           </option>
-          <option value="Revenue Model">Revenue Model</option>
-          <option value="Sales">Sales</option>
-          <option value="Cost Sheet">Cost Sheet</option>
-          <option value="Annual Statement">Annual Statement</option>
-          <option value="Cash Flow">Cash Flow</option>
-          <option value="DCF Valuation">DCF Valuation</option>
-          <option value="VC Valuation and ROI">VC Valuation and ROI</option>
-          <option value="Charts and Graph">Charts and Graph</option>
-          <option value="Funding">Funding</option>
-          <option value="Exir Calculation">Exit Calculation</option>
+          {cateogry.map((item) => {
+            return (
+              <option key={item.name} value={item.name}>
+                {item.name}
+              </option>
+            );
+          })}
         </select>
         <form onSubmit={handleFileSubmit}>
           <div className="excel-file-upload-panel">
@@ -397,7 +464,7 @@ const Excel = () => {
             <button className="uploadBtn">Upload</button>
           </div>
         </form>
-      
+        {/* <button onClick={downloadExcel}>Download</button> */}
       </div>
     </div>
   );
