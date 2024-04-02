@@ -13,6 +13,7 @@ export const UserProvider = ({ children }) => {
       setHamBurger(true);
     }
   }, [windowWidth]);
+
   return (
     <UserContext.Provider
       value={{

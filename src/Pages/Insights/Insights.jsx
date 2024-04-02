@@ -92,9 +92,9 @@ const columns = [
 const Insights = () => {
   return (
     <div className="insights">
-      <div>
-        <button className="logs">View Logs</button>
-        <h3>Existing Users</h3>
+     <div className="overview-section-heading">
+        <h2>Existing User</h2>
+        <button>View Logs</button>
       </div>
       <div className="userList">
         <Box sx={{ height: 530, width: 1000 }}>

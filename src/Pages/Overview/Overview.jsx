@@ -15,8 +15,10 @@ import Pie from "../../Components/Charts/Pie/Pie";
 const Overview = () => {
   return (
     <div className="overview-section">
-      <button className="logs">View Logs</button>
-      <h3>Investor expectations overview</h3>
+      <div className="overview-section-heading">
+        <h2>Investor expectations overview</h2>
+        <button>View Logs</button>
+      </div>
       <div className="overview-charts">
         <div className="overview-chart">
           <Revenue

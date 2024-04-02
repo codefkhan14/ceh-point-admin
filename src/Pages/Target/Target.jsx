@@ -92,9 +92,9 @@ const columns = [
 const Target = () => {
   return (
     <div className="insights">
-      <div>
-        <button className="logs">View Logs</button>
-        <h3>Existing Users</h3>
+      <div className="overview-section-heading">
+        <h2>Existing User</h2>
+        <button>View Logs</button>
       </div>
       <div className="target-links">
         <div>Offer grant</div>

@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ref, set } from "firebase/database";
 import database from "./firebase";
 import Logo from "../../Assets/excel.png";
 import "./Excel.css";
-import * as XLSX from "xlsx";
-import { saveAs } from "file-saver";
+// import * as XLSX from "xlsx";
+import uap from "../../Assets/uap.xlsx";
+import annualstatements from "../../Assets/annualstatements.xlsx";
+import costsheet from "../../Assets/costsheet.xlsx";
+import gmv from "../../Assets/gmv.xlsx";
+import revenuemodel from "../../Assets/revenuemodel.xlsx";
+import pl from "../../Assets/pl.xlsx";
+import salessheet from "../../Assets/salessheet.xlsx";
+
 const Excel = () => {
   const [combinedSalesData, setCombinedSalesData] = useState({});
   const [growthPercentageData, setGrowthPercentageData] = useState({});
@@ -15,7 +22,7 @@ const Excel = () => {
 
   const handleFile = (e) => {
     if (selectCategory === "") {
-      console.log("please select category");
+      window.alert("Please select category");
     } else {
       const file = e.target.files[0];
       const reader = new FileReader();
@@ -284,6 +291,9 @@ const Excel = () => {
         if (selectCategory === "User Aquisitions progression") {
           setData(dataJson);
         }
+        if (selectCategory === "Profit and Loss") {
+          setData(dataJson);
+        }
       };
 
       reader.readAsBinaryString(file);
@@ -292,7 +302,7 @@ const Excel = () => {
   };
   const handleFileSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("sfds");
     if (selectCategory === "Sales") {
       if (combinedSalesData && growthPercentageData) {
         const excelDataRef = ref(database, "excelData/Sales");
@@ -378,24 +388,52 @@ const Excel = () => {
         console.error("No data to upload.");
       }
     }
+    if (selectCategory === "Profit and Loss") {
+      if (data) {
+        const excelDataRef = ref(database, "excelData/V-P&L");
+        try {
+          await set(excelDataRef, data);
+          console.log("Data uploaded to Firebase!");
+        } catch (error) {
+          console.error("Error uploading data:", error);
+        }
+      } else {
+        console.error("No data to upload.");
+      }
+    }
   };
 
-  // const downloadExcel = () => {
-  //   const filePath = "./costSheet";
-  //   fetch(filePath)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.blob();
-  //     })
-  //     .then((blob) => {
-  //       saveAs(blob, "costSheet.xlsx");
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error downloading the file:", error);
-  //     });
-  // };
+  const downloadExcel = () => {
+    //  console.log("download");
+    if (selectCategory == "User Aquisitions progression") {
+      const excelFilePath = uap;
+      window.open(excelFilePath);
+    }
+    if (selectCategory == "Profit and Loss") {
+      const excelFilePath = pl;
+      window.open(excelFilePath);
+    }
+    if (selectCategory == "Gross Merchandises Value") {
+      const excelFilePath = gmv;
+      window.open(excelFilePath);
+    }
+    if (selectCategory == "Annual Statement") {
+      const excelFilePath = annualstatements;
+      window.open(excelFilePath);
+    }
+    if (selectCategory == "Cost Sheet") {
+      const excelFilePath = costsheet;
+      window.open(excelFilePath);
+    }
+    if (selectCategory == "Sales") {
+      const excelFilePath = salessheet;
+      window.open(excelFilePath);
+    }
+    if (selectCategory == "Revenue Model") {
+      const excelFilePath = revenuemodel;
+      window.open(excelFilePath);
+    }
+  };
   const cateogry = [
     {
       name: "Revenue Model",
@@ -415,13 +453,16 @@ const Excel = () => {
     {
       name: "User Aquisitions progression",
     },
+    {
+      name: "Profit and Loss",
+    },
   ];
 
   return (
     <div className="excel-file-upload">
-      <div>
-        <button className="logs">View Logs</button>
-        <h3>Update Excel</h3>
+      <div className="overview-section-heading">
+        <h2>Update Excel</h2>
+        <button>View Logs</button>
       </div>
 
       <div className="excel-file-upload-section">
@@ -458,13 +499,13 @@ const Excel = () => {
             {fileName && <p>{fileName}</p>}
           </div>
           <div className="excel-file-upload-btn">
-            <button type="submit" className="manualBtn">
-              Enter manually
-            </button>
-            <button className="uploadBtn">Upload</button>
+            <button>Enter manually</button>
+            <button type="submit">Upload</button>
           </div>
         </form>
-        {/* <button onClick={downloadExcel}>Download</button> */}
+      </div>
+      <div className="excel-file-download-btn">
+        {selectCategory && <p onClick={downloadExcel}>Download Sample file</p>}
       </div>
     </div>
   );

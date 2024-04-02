@@ -8,7 +8,6 @@ import Insights from "./Pages/Insights/Insights";
 import Target from "./Pages/Target/Target";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider, useMyContext } from "./context/userContext";
-
 function App() {
   return (
     <UserProvider>

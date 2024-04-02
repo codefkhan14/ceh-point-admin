@@ -2,7 +2,35 @@
     margin: 4vh 4vw;
 }
 
+.overview-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+.overview-section-heading h2 {
+    font-size: 20px;
+}
+
+.overview-section-heading button {
+    padding: 10px 30px;
+    background-color: transparent;
+    border: 2px solid #319795;
+    border-radius: 7px;
+    color: #319795;
+    cursor: pointer;
+    float: right;
+}
+
+.overview-section-heading button:hover {
+    background-color: #e1f7f7;
+}
+
 .overview-charts {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,19 +41,30 @@
 
 .overview-chart {
     margin-top: 6vh;
-    width: 500px
+    width: 500px;
 }
 
-.logs {
-    padding: 10px 30px;
-    background-color: transparent;
-    border: 2px solid #319795;
-    border-radius: 7px;
-    color: #319795;
-    cursor: pointer;
-    float: right;
+@media screen and (max-width: 550px) {
+    .overview-chart {
+        width: 450px;
+    }
+
 }
 
-.logs:hover {
-    background-color: #e1f7f7;
+@media screen and (max-width: 500px) {
+    .overview-chart {
+        width: 400px;
+    }
+
+    .overview-section-heading h2 {
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .overview-chart {
+        width: 350px;
+    }
+
 }

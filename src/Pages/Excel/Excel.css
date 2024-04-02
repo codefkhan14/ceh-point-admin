@@ -13,6 +13,7 @@
 .excel-file-upload-panel {
     width: 500px;
     height: 300px;
+    /* border: 2px solid red; */
     background-color: rgba(49, 151, 149, 0.25);
     border-radius: 10px;
     display: flex;
@@ -24,15 +25,15 @@
 }
 
 .excel-file-upload-panel label {
-    /* border: 2px solid blue; */
     font-size: 15px;
+    margin: 0 0 20px 0;
     text-decoration: underline;
     cursor: pointer;
     color: rgb(98, 98, 98);
 }
 
 .excel-file-upload-panel img {
-    /* margin: auto; */
+    margin: auto;
 
 }
 
@@ -52,16 +53,16 @@
 /* button style  */
 
 .excel-file-upload-btn {
-    float: right;
     display: flex;
-    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin-top: 3vh;
 }
 
 .excel-file-upload-btn button {
-    width: 10vw;
-    height: 5.5vh;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
 }
@@ -73,6 +74,7 @@
 
 .excel-file-upload-btn button:nth-child(2) {
     border: none;
+    outline: none;
     background-color: #FD4084;
     color: white;
 }
@@ -87,9 +89,46 @@
     border-radius: 5px;
     background-color: #fff;
     font-size: 1rem;
-  }
-  
-  .excel-file-upload-section select option {
+}
+
+.excel-file-upload-section select option {
     font-size: 1rem;
-  }
-  
+}
+
+.excel-file-download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+}
+
+.excel-file-download-btn p {
+    padding: 10px 20px;
+    background-color: rgba(82, 82, 82, 0.13);
+    text-decoration: underline;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+
+}
+
+@media screen and (max-width: 550px) {
+    .excel-file-upload-panel {
+        width: 400px;
+        height: 270px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .excel-file-upload-panel {
+        width: 350px;
+        height: 260px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .excel-file-upload-panel {
+        width: 300px;
+        height: 240px;
+    }
+}
